@@ -5,9 +5,9 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articles : {
-    var articleOne = {
-        title:'Article One | JITHIN Ek',
+var articles = {
+        articleOne : {
+        title: 'Article One | JITHIN Ek',
         heading: 'Article One',
         date:'Sep 5,2018',
         content:`<p>
@@ -20,7 +20,7 @@ var articles : {
                         This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. 
                     </p>`
     },
-    var articleTwo = {
+        articleTwo : {
         title:'Article Two | JITHIN Ek',
         heading: 'Article Two',
         date:'Sep 5,2018',
@@ -34,7 +34,7 @@ var articles : {
                         This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. 
                     </p>`
     },
-    var articleThree = {
+        articleThree : {
         title:'Article Two | JITHIN Ek',
         heading: 'Article Two',
         date:'Sep 5,2018',
@@ -80,7 +80,7 @@ function createTemplate (data){
                 </div>
             </div>
         </body>
-    </html>`
+    </html>`;
     return htmlTemplate;
 }
 
@@ -97,13 +97,13 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 app.get('/article-one',function(req,res){
-    res.send(htmlTemplate(articleOne))
+    res.send(htmlTemplate(articleOne));
 });
 app.get('/article-two',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+    res.send(htmlTemplate(articleTwo));
 });
 app.get('/article-three',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+    res.send(htmlTemplate(articleThree));
 });
 
 // Do not change port, otherwise your app won't run on IMAD servers
