@@ -1,31 +1,23 @@
 console.log('Loaded!');
 
-
-// Change the text of the main-text div
-
-//var element = document.getElementById('main-text');
-//element.innerHTML = 'New value';
-
-
-//Move the image
-/*
-var img = document.getElementById('madi');
-var marginLeft =0;
-function moveRight(){
-    marginLeft = marginLeft + 10;
-    img.style.marginLeft = marginLeft + 'px';
-}
-img.onclick = function(){
-    var interval = setInterval(moveRight,50);
-    
-};
-
-*/
-
-var counter=0;;
 var button = document.getElementById('counter');
+
 button.onclick = function(){
-    counter=counter+1;
-    var span =document.getElementById('count');
-    count.innerHTML=counter.toString();
-} 
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function(){
+        if(request.readyState === XMLHttpRequest.DONE){
+            if(request.status ===200){
+                var counter = counter.response.Text;
+                var span = document.getElementById('count');
+                span.innerHTML = counter.toString();
+            }
+        }
+        
+    };
+
+    request.open('GET','http://jithinek96.imad.hasura-app.io/counter',true);
+    request.sent(null);
+    
+
+};
