@@ -21,3 +21,12 @@ img.onclick = function(){
 };
 
 */
+
+
+var button = document.getElementById('counter');
+button.onclick = function(){
+    var counter;
+    counter=counter+1;
+    var span =document.getElementById('count');
+    count.innerHTML=counter;
+} 
